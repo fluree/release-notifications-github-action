@@ -43,14 +43,13 @@
        (.parse js/JSON)))
 
 (defn dispatch-event [{:keys [owner repo] :as full-repo}]
-  (let [payload (client-payload)]
-    (println "Payload:" (pr-str payload))
-    (.request @octokit
-              "POST /repos/{owner}/{repo}/dispatches"
-              #js {:owner          owner
-                   :repo           repo
-                   :event_type     (repo->event-type full-repo)
-                   :client_payload payload})))
+  (let [payload (client-payload)
+        body #js {:owner          owner
+                  :repo           repo
+                  :event_type     (repo->event-type full-repo)
+                  :client_payload payload}]
+    (println "Dispatch body:" (pr-str body))
+    (.request @octokit "POST /repos/{owner}/{repo}/dispatches" body)))
 
 (defn notify-repo [repo]
   (println "Notifying repo:" repo)
