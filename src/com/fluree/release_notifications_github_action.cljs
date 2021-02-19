@@ -24,8 +24,9 @@
     (parse-repo repo)
     (assoc (this-repo) :repo repo)))
 
-(defn repo->event-type [{:keys [owner repo]}]
-  (str owner "-" repo "-release"))
+(defn event-type []
+  (let [{:keys [owner repo]} (this-repo)]
+    (str owner "-" repo "-release")))
 
 (defn new-octokit [access-token]
   (Octokit. #js {:auth access-token}))
@@ -46,7 +47,7 @@
   (let [payload (client-payload)
         body #js {:owner          owner
                   :repo           repo
-                  :event_type     (repo->event-type full-repo)
+                  :event_type     (event-type)
                   :client_payload payload}]
     (println "Dispatch body:" (pr-str body))
     (.request @octokit "POST /repos/{owner}/{repo}/dispatches" body)))
