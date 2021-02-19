@@ -3,7 +3,7 @@
 SOURCES := $(shell find src)
 
 index.js: $(SOURCES) node_modules
-	clojure -m cljs.main --target node --output-to $@ -c com.fluree.release-notifications-github-action
+	clojure -M:nodejs
 
 node_modules: package.json package-lock.json
 	npm install && touch node_modules

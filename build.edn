@@ -1,0 +1,5 @@
+{:target        :nodejs
+ :output-to     "index.js"
+ :main          com.fluree.release-notifications-github-action
+ :optimizations :simple
+ :infer-externs true}
