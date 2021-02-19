@@ -44,7 +44,7 @@
 
 (defn dispatch-event [{:keys [owner repo] :as full-repo}]
   (let [payload (client-payload)]
-    (println "Payload:" payload)
+    (println "Payload:" (pr-str payload))
     (.request @octokit
               "POST /repos/{owner}/{repo}/dispatches"
               #js {:owner          owner
