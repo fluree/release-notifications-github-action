@@ -1,0 +1,12 @@
+name: 'Release Notifications'
+description: 'Notify other repos of releases'
+inputs:
+  repos-to-notify:
+    description: 'Quoted JSON array of GitHub repos to notify of releases'
+    required: true
+  token:
+    description: 'Secret GitHub access token with repo privileges on every repo-to-notify'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,17 @@
+{
+  "name": "release-notifications-github-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to nofity other repos of releases",
+  "main": "index.js",
+  "author": "Fluree, PBC",
+  "license": "EPL-1.0",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@octokit/core": "^3.2.5"
+  },
+  "devDependencies": {
+    "source-map-support": "^0.5.19",
+    "webpack": "^5.22.0",
+    "webpack-cli": "^4.5.0"
+  }
+}
