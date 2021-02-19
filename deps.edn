@@ -2,7 +2,8 @@
  :deps {org.clojure/clojure {:mvn/version "1.10.2"}
         org.clojure/clojurescript {:mvn/version "1.10.773"}
         org.clojure/core.async {:mvn/version "1.3.610"}
-        binaryage/oops {:mvn/version "0.7.0"}}
+        binaryage/oops {:mvn/version "0.7.0"}
+        cljs-node-io/cljs-node-io {:mvn/version "1.1.2"}}
  :aliases
  {:run-m {:main-opts ["-m" "com.fluree.release-notifications-github-action"]}
   :run-x {:ns-default com.fluree.release-notifications-github-action
